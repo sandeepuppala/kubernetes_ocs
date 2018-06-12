@@ -1,0 +1,27 @@
+apiVersion:apps/vibeta1
+kind:Deployment
+metadata:
+   name:ocs_server_depl
+spec:
+  replicas:3
+  template:
+    metadata:
+       labels:
+         app:ocs_server
+    spec:
+      containers:
+        -name:ocs_server
+         image:ocsinventory/ocsinventory-docker-image:latest 
+         env:
+          -name:OCS_DBNAME
+           value:ocsweb
+          -name:OCS_DBSERVER_READ
+           value:localhost
+          -name:OCS_DBSERVER_WRITE
+           value:localhost
+          -name:OCS_DBUSER
+           value:ocs
+          -name:OCS_DBPASS
+           value:ocs
+         ports:
+           -containerPort:80

@@ -1,0 +1,24 @@
+apiVersion:v1
+kind:pod
+metadata:
+   name:mysql
+   labels:
+     app:mysql
+spec:
+  containers:
+     -name:mysql
+      image:mysql:latest
+      ports:
+        -containerPort:3306
+         name:mysql
+         protocol:TCP
+      env:
+        -name:MYSQL_ROOT_PASSWORD
+         value:ocs
+      volumeMounts:
+        -mountpath:/var/lib/mysql
+         name:mysql_volume
+  volumes:
+    -name:mysql_volume
+     hostpath:
+         path:/opt/mysql
