@@ -11,14 +11,10 @@ spec:
     spec:
       containers:
         -name:ocs_server
-         image:ocsinventory/ocsinventory-docker-image:latest 
+         image:sandeepchowdary/ocs:latest 
          env:
           -name:OCS_DBNAME
            value:ocsweb
-          -name:OCS_DBSERVER_READ
-           value:localhost
-          -name:OCS_DBSERVER_WRITE
-           value:localhost
           -name:OCS_DBUSER
            value:ocs
           -name:OCS_DBPASS
