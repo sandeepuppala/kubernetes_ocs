@@ -1,23 +1,28 @@
-apiVersion:apps/vibeta1
-kind:Deployment
+apiVersion: apps/v1beta1
+kind: Deployment
 metadata:
-   name:ocs_server_depl
+   name: ocsserverdepl
 spec:
-  replicas:3
+  replicas: 3
   template:
     metadata:
        labels:
-         app:ocs_server
+         app: ocsserver
     spec:
       containers:
-        -name:ocs_server
-         image:sandeepchowdary/ocs:latest 
-         env:
-          -name:OCS_DBNAME
-           value:ocsweb
-          -name:OCS_DBUSER
-           value:ocs
-          -name:OCS_DBPASS
-           value:ocs
-         ports:
-           -containerPort:80
+        - name: ocsserver
+          image: sandeepchowdary/ocs:2.3
+          env:
+           - name: OCS_DBNAME
+             value: ocsweb
+           - name: OCS_DBUSER
+             value: ocs
+           - name: OCS_DBPASS
+             value: ocs
+#           - name: OCS_DBSERVER_READ
+#             value: 10.105.6.77
+#           - name: OCS_DBSERVER_WRITE
+#             value: 10.105.6.77
+
+          ports:
+            - containerPort: 80
